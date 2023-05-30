@@ -10,6 +10,7 @@ project(my_hello_world)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -211,5 +212,21 @@ add_executable(my_hello_world_node
 )
 add_dependencies(my_hello_world_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(my_hello_world_node
+  ${catkin_LIBRARIES}
+)
+
+add_executable(hello_pub
+  src/hello_pub.cpp
+)
+add_dependencies(hello_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(hello_pub
+  ${catkin_LIBRARIES}
+)
+
+add_executable(hello_sub
+  src/hello_sub.cpp
+)
+add_dependencies(hello_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(hello_sub
   ${catkin_LIBRARIES}
 )
