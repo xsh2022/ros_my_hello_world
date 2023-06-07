@@ -1,7 +1,6 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
-#include <bits/stdc++.h>
-#include <ros/console.h>
+#include <iostream>
 
 #define LOOP_RATE_HZ (5)
 
@@ -9,7 +8,7 @@
 void helloSubCallback(std_msgs::StringConstPtr msg)
 {
     std::string msgStr = msg->data;
-    printf(("Subscriber: "+ msgStr + "\n").c_str());
+    printf(("Subscriber: %s\n"), msgStr.c_str());
 }
 
 
